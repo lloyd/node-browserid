@@ -1,0 +1,22 @@
+{
+  "author": "Lloyd Hilaiel <lloyd@hilaiel.com> (http://lloyd.io)",
+  "name": "browserid-verifier",
+  "description": "A node library to verify assertions",
+  "version": "0.0.1",
+  "homepage": "http://github.com/mozilla/node-browserid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mozila/node-browserid.git"
+  },
+  "main": "src/browserid",
+  "engines": {
+    "node": ">=0.4.7"
+  },
+  "dependencies": {
+    "jwcrypto": "0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test/run.js"
+  }
+}
