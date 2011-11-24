@@ -25,20 +25,18 @@ $("button").click(function(event) {
     if (!assertion) {
       $("div.main").text("you have to select an idenity");
     } else {
-      function checkAssertion(assertion) {
-        $.ajax({
-          url: "/auth",
-          type: "post",
-          dataType: "json",
-          data: assertion,
-          success: function(data, textStatus, jqXHR) {
-            $("div.main").text("You're logged in: " + data);
-          },
-          error: function(jqXHR, textStatus, errorThrown) {
-            $("div.main").text("Couldn't log you in: " + data);
-          }
-        });
-      };
+      $.ajax({
+        url: "/auth",
+        type: "post",
+        dataType: "json",
+        data: { assertion: assertion },
+        success: function(data, textStatus, jqXHR) {
+          $("div.main").text("You're logged in: " + data);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          $("div.main").text("Couldn't log you in: " + data);
+        }
+      });
     }
   });
 });
