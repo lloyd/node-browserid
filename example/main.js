@@ -24,11 +24,14 @@ exampleServer.post('/auth', function(req, res, next) {
       audience: localOrigin,
       assertion: req.body.assertion
     }, function(err, r) {
-      console.log("err", err);
-      console.log("r", r);
-      res.writeHead(500);
-      res.write('not yet implemented');
-      res.end();
+      if (err) {
+        res.writeHead(500);
+        res.write(err);
+        res.end();
+      } else {
+        res.write(JSON.stringify(r.email));
+        res.end();
+      }
     });
   }
 });
