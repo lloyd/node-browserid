@@ -2,7 +2,8 @@
 
 const
 express = require('express'),
-path = require('path');
+path = require('path'),
+browserid = require('../lib/browserid');
 
 var exampleServer = express.createServer();
 
@@ -12,10 +13,24 @@ exampleServer.use(express.static(path.join(__dirname, ".")));
 
 exampleServer.use(express.bodyParser());
 
+var localOrigin;
+
 exampleServer.post('/auth', function(req, res, next) {
-  console.log("got auth: ", req.body);
-  res.writeHead(403);
-  res.end();
+  if (!req.body || !req.body.assertion) {
+    res.writeHead(400);
+    res.end();
+  } else {
+    browserid({
+      audience: localOrigin,
+      assertion: req.body.assertion
+    }, function(err, r) {
+      console.log("err", err);
+      console.log("r", r);
+      res.writeHead(500);
+      res.write('not yet implemented');
+      res.end();
+    });
+  }
 });
 
 exampleServer.listen(
@@ -23,5 +38,6 @@ exampleServer.listen(
   process.env['HOST'] || "127.0.0.1",
   function() {
     var addy = exampleServer.address();
-    console.log("running on http://" + addy.address + ":" + addy.port);
+    localOrigin = 'http://' + addy.address + ":" + addy.port;
+    console.log("running on", localOrigin);
   });
