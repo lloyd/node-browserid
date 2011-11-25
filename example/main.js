@@ -7,11 +7,10 @@ browserid = require('../lib/browserid');
 
 var exampleServer = express.createServer();
 
-exampleServer.use(express.logger({ format: 'dev' }));
-
-exampleServer.use(express.static(path.join(__dirname, ".")));
-
-exampleServer.use(express.bodyParser());
+exampleServer
+  .use(express.logger({ format: 'dev' }))
+  .use(express.static(path.join(__dirname, ".")))
+  .use(express.bodyParser());
 
 var localOrigin;
 
