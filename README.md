@@ -38,9 +38,9 @@ Then implement client code that calls includes
 button.  Send the assertion returned from that function up to your
 server, and verify it in node:
 
-    var browserid-verify = require('browserid-verifier');
+    var browseridVerify = require('browserid-verifier');
 
-    browserid-verify({
+    browseridVerify({
       assertion: theAssertion,
       audience: "http://mysite.com"
     }, function (err, r) {

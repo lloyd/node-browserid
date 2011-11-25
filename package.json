@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/lloyd/node-browserid.git"
   },
-  "main": "src/browserid",
+  "main": "lib/browserid",
   "engines": {
     "node": ">=0.4.7"
   },
