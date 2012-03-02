@@ -2,7 +2,7 @@
   "author": "Lloyd Hilaiel <lloyd@hilaiel.com> (http://lloyd.io)",
   "name": "browserid-verifier",
   "description": "A node library to verify assertions",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "http://github.com/lloyd/node-browserid",
   "repository": {
     "type": "git",
