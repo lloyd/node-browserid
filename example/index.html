@@ -31,10 +31,20 @@ $("button").click(function(event) {
         dataType: "json",
         data: { assertion: assertion },
         success: function(data, textStatus, jqXHR) {
-          $("div.main").text("You're logged in: " + data);
+          var divMain = $("div.main");
+          divMain.text("You're logged in.  See?");
+
+          // make a definition list showing what came back
+          var dl = $(document.createElement("dl"));
+          for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+              dl.append("<dt>" + key + "<dt><dd>" + data[key] + "</dd>");
+            }
+          }
+          divMain.append(dl);
         },
         error: function(jqXHR, textStatus, errorThrown) {
-          $("div.main").text("Couldn't log you in: " + data);
+          $("div.main").text("Couldn't log you in: " + errorThrown);
         }
       });
     }
