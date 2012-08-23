@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/lloyd/node-browserid.png)](http://travis-ci.org/lloyd/node-browserid)
 **WARNING:** This is alpha quality code, and shouldn't
 really be used in production quality systems until this
 notice is removed.
